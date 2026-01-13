@@ -3,14 +3,18 @@ import { NavbarDemo } from './components/ui/Navbar'
 import { TypewriterEffectSmoothDemo } from './components/ui/TypewriterEffect'
 import { BackgroundLinesDemo } from './components/ui/BackgroundLines'
 import { SmoothCursorDemo } from './components/ui/SmoothCursor'
-import Snowfall from 'react-snowfall'
+
+import { useEffect } from 'react'
 function App() {
+
+  useEffect(() => {
+    document.title = "Divy Barot | Portfolio"
+    
+  }, [])
 
   return (
     <>
-    <div className="cursor-none">
     <SmoothCursorDemo />
-    </div>
       <NavbarDemo>
         <BackgroundLinesDemo>
           <TypewriterEffectSmoothDemo />

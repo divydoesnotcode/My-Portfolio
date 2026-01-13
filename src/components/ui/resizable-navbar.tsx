@@ -90,8 +90,8 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       animate={{
-        backdropFilter: isHovered 
-          ? "blur(18px) saturate(190%)" 
+        backdropFilter: isHovered
+          ? "blur(18px) saturate(190%)"
           : "blur(16px) saturate(180%)",
         boxShadow: isHovered
           ? "0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.12)"
@@ -161,8 +161,8 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       animate={{
-        backdropFilter: isHovered 
-          ? "blur(18px) saturate(190%)" 
+        backdropFilter: isHovered
+          ? "blur(18px) saturate(190%)"
           : "blur(16px) saturate(180%)",
         boxShadow: isHovered
           ? "0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.12)"
@@ -263,7 +263,7 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => {
   return (
     <a
-      href="#"
+      href="http://localhost:5173/react-vite-deploy"
       className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white group"
       aria-label="Home"
     >
@@ -303,9 +303,9 @@ export const NavbarButton = ({
   const variantStyles = {
     primary:
       "bg-white text-black shadow-lg hover:shadow-xl border border-gray-200 focus:ring-white/50",
-    secondary: 
+    secondary:
       "bg-transparent text-gray-300 hover:text-white border border-gray-700 hover:border-gray-500 focus:ring-gray-500",
-    dark: 
+    dark:
       "bg-gray-900 text-white shadow-lg hover:shadow-xl border border-gray-800 hover:bg-black focus:ring-gray-700",
   };
 

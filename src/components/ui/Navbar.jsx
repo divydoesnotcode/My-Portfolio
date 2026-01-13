@@ -26,10 +26,6 @@ export function NavbarDemo({ children }) {
       name: "Github",
       link: "https://github.com/divydoesnotcode",
     },
-    {
-      name: "Projects",
-      link: "./pages/Projects",
-    },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
