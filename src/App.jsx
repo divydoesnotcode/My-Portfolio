@@ -17,7 +17,10 @@ import Lenis from 'lenis'
 
 // Detect touch/mobile — cursor & parallax are pointer-device only
 function isPointerDevice() {
-  return window.matchMedia('(pointer: fine)').matches
+  if (typeof window === 'undefined') return false
+  const isMobile = window.matchMedia('(max-width: 768px)').matches
+  const hasFinePointer = window.matchMedia('(pointer: fine)').matches
+  return hasFinePointer && !isMobile
 }
 
 function App() {
@@ -25,7 +28,10 @@ function App() {
   const [hasFinePointer, setHasFinePointer] = useState(false)
 
   useEffect(() => {
-    setHasFinePointer(isPointerDevice())
+    const updatePointer = () => setHasFinePointer(isPointerDevice())
+    updatePointer()
+    window.addEventListener('resize', updatePointer)
+    return () => window.removeEventListener('resize', updatePointer)
   }, [])
 
   // Lenis smooth scroll
@@ -46,7 +52,6 @@ function App() {
   return (
     <>
       {hasFinePointer && <SmoothCursorDemo />}
-      <BackgroundLines />
       <Preloader isLoading={isLoading} onComplete={() => setIsLoading(false)} />
 
       {!isLoading && (

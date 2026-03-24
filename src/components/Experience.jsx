@@ -3,33 +3,43 @@ import { motion, useScroll, useTransform } from "motion/react";
 
 const experiences = [
   {
-    year: "2024 — Now",
+    year: "2025 — Now",
     title: "Full Stack Developer",
-    company: "Tech Innovators Inc.",
+    company: "Freelance",
     type: "Work",
-    color: { r: 59, g: 130, b: 246 },   // blue
+    color: { r: 180, g: 83, b: 9 },   // Amber/Terracotta
     description:
-      "Developing and maintaining complex web applications using React, Node.js, and PostgreSQL. Focused on performance optimization and scalable architecture.",
-    highlights: ["React", "Node.js", "PostgreSQL", "Docker"],
+      "Working with clients to build and maintain web applications using React, Node.js, and PostgreSQL. Integrating AI agents to automate tasks. Also experimenting with n8n",
+    highlights: ["Ollama", "React", "Node.js", "PostgreSQL", "Docker", "Next.js", "n8n"],
   },
   {
-    year: "2023 — 2024",
-    title: "Frontend Engineer Intern",
-    company: "Creative Design Agency",
+    year: "2026 — Now",
+    title: "Full Stack Developer - Intern",
+    company: "ProcureGenie Pvt. Ltd.",
     type: "Work",
-    color: { r: 139, g: 92, b: 246 },   // violet
+    color: { r: 180, g: 83, b: 9 },   // Amber/Terracotta
     description:
-      "Built responsive and interactive user interfaces for various client projects. Collaborated closely with designers to ensure pixel-perfect implementation.",
-    highlights: ["Next.js", "Figma", "Tailwind CSS", "Motion"],
+      "Developing and maintaining complex web applications using React, Node.js, and PostgreSQL. Integrating AI agents to automate tasks.",
+    highlights: ["Ollama","React", "Node.js", "PostgreSQL", "Docker", "Next.js"],
   },
   {
-    year: "2020 — 2024",
-    title: "Computer Science",
-    company: "University of Technology",
+    year: "2023 — 2026",
+    title: "B.E in Computer Science & Engineering - AI/ML",
+    company: "New L.J. Institute of Engineering and Technology",
     type: "Education",
-    color: { r: 16, g: 185, b: 129 },   // emerald
+    color: { r: 110, g: 87, b: 115 },   // Muted Plum/Dusty Purple
     description:
-      "Graduated with honors. Coursework included Data Structures, Algorithms, Web Development, and Database Management Systems.",
+      "Pursuing a Bachelor of Engineering in Computer Science with a specialization in Artificial Intelligence and Machine Learning. Gaining comprehensive knowledge in core computer science subjects and advanced AI/ML concepts.",
+    highlights: ["AI", "ML", "Data Science", "Deep Learning", "Python", "TensorFlow", "PyTorch"],
+  },
+  {
+    year: "2020 — 2023",
+    title: "Diploma in Computer Engineering",
+    company: "R. C. Technical Institute",
+    type: "Education",
+    color: { r: 67, g: 90, b: 72 },   // Muted Sage/Olive
+    description:
+      "Coursework included Data Structures, Algorithms, Web Development, and Database Management Systems.",
     highlights: ["DSA", "System Design", "Web Dev", "DBMS"],
   },
 ];
@@ -195,7 +205,7 @@ export function Experience() {
           margin-bottom: clamp(40px,5vw,64px);
         }
         .tl-eyebrow {
-          color: #3b82f6;
+          color: var(--accent);
           font-size: 11px;
           letter-spacing: 0.28em;
           text-transform: uppercase;
@@ -206,7 +216,7 @@ export function Experience() {
           font-family: var(--font-display);
           font-size: clamp(2.4rem,6vw,5rem);
           font-weight: 800;
-          color: #fff;
+          color: var(--fg);
           line-height: 1.05;
           letter-spacing: -0.025em;
           margin: 0;
@@ -238,7 +248,7 @@ export function Experience() {
           content: '';
           position: absolute;
           inset: 0;
-          background: rgba(255,255,255,0.06);
+          background: var(--border);
           border-radius: 2px;
         }
 
@@ -246,10 +256,10 @@ export function Experience() {
           position: absolute;
           inset: 0;
           background: linear-gradient(to bottom,
-            rgba(59,130,246,0.0) 0%,
-            rgba(59,130,246,0.7) 40%,
-            rgba(139,92,246,0.7) 70%,
-            rgba(16,185,129,0.6) 100%
+            rgba(180,83,9,0.0) 0%,
+            rgba(180,83,9,0.6) 40%,
+            rgba(110,87,115,0.5) 70%,
+            rgba(67,90,72,0.5) 100%
           );
           border-radius: 2px;
           transform-origin: top;
@@ -262,8 +272,8 @@ export function Experience() {
           width: 10px;
           height: 10px;
           border-radius: 50%;
-          background: #3b82f6;
-          box-shadow: 0 0 14px rgba(59,130,246,0.8), 0 0 28px rgba(59,130,246,0.4);
+          background: var(--accent);
+          box-shadow: 0 0 14px rgba(180,83,9,0.5), 0 0 28px rgba(180,83,9,0.2);
           z-index: 2;
         }
 
@@ -317,7 +327,7 @@ export function Experience() {
           font-size: clamp(11px,0.9vw,13px);
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.28);
+          color: var(--fg-muted);
           white-space: nowrap;
         }
 
@@ -326,14 +336,15 @@ export function Experience() {
           position: relative;
           padding: clamp(20px,2.5vw,28px);
           border-radius: 20px;
-          border: 1px solid rgba(255,255,255,0.07);
-          background: rgba(255,255,255,0.018);
+          border: 1px solid var(--border);
+          background: var(--bg-card);
           overflow: hidden;
           transition: border-color 0.3s, background 0.3s;
         }
         .tl-card:hover {
-          border-color: rgba(255,255,255,0.11);
-          background: rgba(255,255,255,0.028);
+          border-color: var(--border-strong);
+          background: var(--bg-card);
+          box-shadow: var(--shadow-card);
         }
         /* On desktop, the middle column is the beam lane — card sits in column 3 */
         @media (min-width: 768px) {
@@ -368,7 +379,7 @@ export function Experience() {
           font-family: var(--font-display);
           font-size: clamp(1.1rem,2vw,1.35rem);
           font-weight: 700;
-          color: #fff;
+          color: var(--fg);
           margin: 0 0 4px;
           line-height: 1.3;
         }
@@ -381,7 +392,7 @@ export function Experience() {
         .tl-desc {
           font-family: var(--font-body);
           font-size: clamp(13px,1vw,14px);
-          color: rgba(255,255,255,0.45);
+          color: var(--fg-muted);
           line-height: 1.7;
           margin: 0 0 16px;
         }
@@ -414,9 +425,9 @@ export function Experience() {
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background: #3b82f6;
+            background: var(--accent);
             flex-shrink: 0;
-            box-shadow: 0 0 8px rgba(59,130,246,0.6);
+            box-shadow: 0 0 8px rgba(180,83,9,0.4);
           }
         }
       `}</style>

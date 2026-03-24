@@ -170,6 +170,12 @@ export function SmoothCursor({
       })
     }
 
+    const isMobile = window.matchMedia("(max-width: 768px)").matches
+    if (isMobile) {
+      document.body.style.cursor = "auto"
+      return
+    }
+
     document.body.style.cursor = "none"
     window.addEventListener("mousemove", throttledMouseMove)
 

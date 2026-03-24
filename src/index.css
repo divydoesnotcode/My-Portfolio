@@ -5,10 +5,19 @@
 :root {
     --font-display: 'Syne', sans-serif;
     --font-body: 'DM Sans', sans-serif;
-    --accent: #3b82f6;
-    --bg: #080808;
-    --surface: rgba(255, 255, 255, 0.025);
-    --border: rgba(255, 255, 255, 0.07);
+    --accent: #B45309;
+    --accent-muted: rgba(180, 83, 9, 0.12);
+    --bg: #F5F0E8;
+    --bg-card: #EDE8DF;
+    --fg: #1A1610;
+    --fg-muted: #7A705E;
+    --surface: rgba(26, 22, 16, 0.04);
+    --border: rgba(26, 22, 16, 0.10);
+    --border-strong: rgba(26, 22, 16, 0.18);
+    --shadow-card: 0 2px 8px rgba(26,22,16,0.07), 0 12px 32px rgba(26,22,16,0.05);
+    --shadow-card-hover: 0 4px 16px rgba(26,22,16,0.1), 0 24px 48px rgba(26,22,16,0.08);
+    --blur-std: 12px;
+    --blur-heavy: 16px;
 }
 
 /* ── Reset ───────────────────────────────────────────────────── */
@@ -20,6 +29,7 @@
 
 /* Hide system cursor globally on pointer devices */
 @media (pointer: fine) {
+
     html,
     body,
     *,
@@ -41,9 +51,9 @@ body {
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: #fff;
-    /* Prevent horizontal overflow on mobile, clip doesn't break sticky */
-    overflow-x: clip; 
+    color: var(--fg);
+    line-height: 1.6;
+    overflow-x: clip;
 }
 
 #root {
@@ -60,6 +70,13 @@ h3,
 h4,
 .display {
     font-family: var(--font-display);
+    letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: clamp(2rem, 8vw, 3rem); }
+    h2 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+    h3 { font-size: clamp(1.5rem, 5vw, 2rem); }
 }
 
 /* ── Scrollbar ───────────────────────────────────────────────── */
@@ -72,7 +89,7 @@ h4,
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2a2a2a;
+    background: #C4B99A;
     border-radius: 2px;
 }
 
@@ -83,8 +100,8 @@ body::before {
     inset: 0;
     z-index: 9999;
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-    opacity: 0.45;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    opacity: 0.6;
 }
 
 /* ── Marquee (used in Hero) ──────────────────────────────────── */
@@ -111,8 +128,8 @@ body::before {
 
 /* ── Text selection ──────────────────────────────────────────── */
 ::selection {
-    background: rgba(59, 130, 246, 0.25);
-    color: #fff;
+    background: rgba(180, 83, 9, 0.25);
+    color: var(--fg);
 }
 
 /* ── Tap highlight off on mobile ─────────────────────────────── */

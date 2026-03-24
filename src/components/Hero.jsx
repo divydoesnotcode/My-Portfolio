@@ -30,7 +30,7 @@ function Marquee() {
     return (
         <div style={{
             overflow: "hidden",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid var(--border)",
             flexShrink: 0,
         }}>
             <div style={{
@@ -38,18 +38,19 @@ function Marquee() {
                 whiteSpace: "nowrap",
                 animation: "marquee-scroll 32s linear infinite",
                 willChange: "transform",
+                transform: "translateZ(0)",
             }}>
                 {MARQUEE_ITEMS.map((item, i) => (
                     <span key={i} style={{
                         display: "inline-flex", alignItems: "center", gap: "20px",
                         padding: "13px 24px", fontSize: "10px", letterSpacing: "0.26em",
-                        textTransform: "uppercase", color: "rgba(255,255,255,0.22)",
-                        fontFamily: "var(--font-body)", flexShrink: 0,
+                        textTransform: "uppercase", color: "var(--fg-muted)",
+                        fontFamily: "var(--font-body)", flexShrink: 0, opacity: 0.6,
                     }}>
                         {item}
                         <span style={{
                             width: "4px", height: "4px", borderRadius: "50%",
-                            background: "rgba(59,130,246,0.6)", flexShrink: 0,
+                            background: "var(--accent)", flexShrink: 0, opacity: 0.5,
                         }} />
                     </span>
                 ))}
@@ -83,7 +84,7 @@ export function Hero() {
                 minHeight: "520px",
                 display: "flex",
                 flexDirection: "column",
-                background: "#080808",
+                background: "var(--bg)",
             }}
         >
             {/* Ambient glow */}
@@ -91,7 +92,7 @@ export function Hero() {
                 position: "absolute", top: "20%", left: "50%",
                 transform: "translateX(-50%)",
                 width: "90vw", height: "50vh",
-                background: "radial-gradient(ellipse at center, rgba(59,130,246,0.05) 0%, transparent 68%)",
+                background: "radial-gradient(ellipse at center, rgba(180,83,9,0.04) 0%, transparent 68%)",
                 pointerEvents: "none", zIndex: 0,
             }} />
 
@@ -106,14 +107,14 @@ export function Hero() {
             >
                 <span style={{
                     fontSize: "11px", letterSpacing: "0.22em", textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.22)", fontFamily: "var(--font-body)",
+                    color: "var(--fg-muted)", fontFamily: "var(--font-body)", opacity: 0.7,
                 }}>
                     Portfolio · 2026
                 </span>
                 <span style={{
                     display: "flex", alignItems: "center", gap: "7px",
                     fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase",
-                    color: "rgba(74,222,128,0.85)", fontFamily: "var(--font-body)",
+                    color: "#16a34a", fontFamily: "var(--font-body)",
                 }}>
                     <span className="hero-status-dot" />
                     Available for work
@@ -139,9 +140,9 @@ export function Hero() {
                 justifyContent: "center",
                 position: "relative",
                 zIndex: 5,
-                padding: "0 clamp(16px,5vw,40px)",
+                padding: "0 clamp(16px,5vw,40px) clamp(60px,12vh,120px)",
                 textAlign: "center",
-                gap: "clamp(10px,2vh,26px)",
+                gap: "clamp(10px,2vh,28px)",
             }}>
 
                 {/* Giant name */}
@@ -151,11 +152,11 @@ export function Hero() {
                             variants={slideUp} initial="hidden" animate="show" custom={1}
                             style={{
                                 fontFamily: "var(--font-display)",
-                                fontSize: "clamp(3.4rem, min(20vw, 22vh), 17rem)",
-                                fontWeight: 800,
+                                fontSize: "clamp(2.5rem, min(20vw, 22vh), 16rem)",
+                                fontWeight: 700,
                                 lineHeight: 0.88,
-                                letterSpacing: "-0.035em",
-                                color: "#ffffff",
+                                letterSpacing: "-0.025em",
+                                color: "var(--fg)",
                                 margin: 0,
                                 display: "block",
                             }}
@@ -168,11 +169,11 @@ export function Hero() {
                             variants={slideUp} initial="hidden" animate="show" custom={2}
                             style={{
                                 fontFamily: "var(--font-display)",
-                                fontSize: "clamp(3.4rem, min(20vw, 22vh), 17rem)",
-                                fontWeight: 800,
+                                fontSize: "clamp(2.5rem, min(20vw, 22vh), 16rem)",
+                                fontWeight: 700,
                                 lineHeight: 0.88,
-                                letterSpacing: "-0.035em",
-                                WebkitTextStroke: "clamp(1.5px,0.2vw,3.5px) rgba(255,255,255,0.38)",
+                                letterSpacing: "-0.025em",
+                                WebkitTextStroke: "clamp(1.2px,0.18vw,3px) rgba(26,22,16,0.3)",
                                 color: "transparent",
                                 margin: 0,
                                 display: "block",
@@ -191,7 +192,7 @@ export function Hero() {
                             fontFamily: "var(--font-body)",
                             fontSize: "clamp(11px, 1.4vw, 16px)",
                             fontWeight: 300,
-                            color: "rgba(255,255,255,0.4)",
+                            color: "var(--fg-muted)",
                             letterSpacing: "0.04em",
                             margin: 0,
                             lineHeight: 1.6,
@@ -243,7 +244,7 @@ export function Hero() {
 
         .hero-cta-primary {
           padding: clamp(11px,1.5vw,15px) clamp(22px,3.5vw,40px);
-          background: #ffffff; color: #080808;
+          background: var(--fg); color: var(--bg);
           border-radius: 100px;
           font-size: clamp(12px,1.1vw,14px);
           font-weight: 700; font-family: var(--font-display);
@@ -255,14 +256,14 @@ export function Hero() {
         }
         .hero-cta-primary:hover {
           transform: scale(1.05);
-          box-shadow: 0 0 44px rgba(59,130,246,0.3);
+          box-shadow: 0 8px 28px rgba(26,22,16,0.2);
         }
         .hero-cta-primary:active { transform: scale(0.97); }
 
         .hero-cta-secondary {
           padding: clamp(11px,1.5vw,15px) clamp(22px,3.5vw,40px);
-          background: transparent; color: rgba(255,255,255,0.52);
-          border: 1px solid rgba(255,255,255,0.11);
+          background: transparent; color: var(--fg-muted);
+          border: 1px solid var(--border-strong);
           border-radius: 100px;
           font-size: clamp(12px,1.1vw,14px);
           font-weight: 500; font-family: var(--font-display);
@@ -273,8 +274,8 @@ export function Hero() {
           min-height: 44px;
         }
         .hero-cta-secondary:hover {
-          border-color: rgba(255,255,255,0.3);
-          color: #fff;
+          border-color: var(--accent);
+          color: var(--accent);
           transform: scale(1.04);
         }
         .hero-cta-secondary:active { transform: scale(0.97); }

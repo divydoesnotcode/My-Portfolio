@@ -71,8 +71,8 @@ export function Footer() {
                     <div className="footer-name footer-name--desktop">DIVY BAROT</div>
                     {/* Mobile: stacked two lines so each fills the width */}
                     <div className="footer-name--mobile">
-                        <div className="footer-name footer-name--line">DIVY</div>
-                        <div className="footer-name footer-name--line footer-name--outline">BAROT.</div>
+                        <div className="footer-name footer-name--line footer-name--divy">DIVY</div>
+                        <div className="footer-name footer-name--line footer-name--barot footer-name--outline">BAROT.</div>
                     </div>
                 </motion.div>
             </div>
@@ -155,6 +155,7 @@ export function Footer() {
         .footer-name-wrap {
           width: 100%;
           overflow: hidden;
+          padding: 0 16px;
         }
 
         /* Shared name styles */
@@ -179,7 +180,7 @@ export function Footer() {
 
         /* Desktop: one line, 16.5vw fills edge-to-edge */
         .footer-name--desktop {
-          font-size: clamp(4rem, 16.5vw, 18rem);
+          font-size: clamp(2.2rem, 16.5vw, 18rem);
           display: block;
         }
 
@@ -190,10 +191,11 @@ export function Footer() {
 
         /* Each mobile line fills full width */
         .footer-name--line {
-          font-size: 23vw;   /* 23vw on phone perfectly fills ~390px wide screens */
           display: block;
           white-space: nowrap;
         }
+        .footer-name--divy { font-size: 25vw; }
+        .footer-name--barot { font-size: 18.5vw; }
 
         /* BAROT gets the outline treatment like in Hero */
         .footer-name--outline {

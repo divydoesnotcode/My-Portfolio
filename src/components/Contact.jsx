@@ -14,7 +14,7 @@ export function Contact() {
 
             {/* Label */}
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-                className="text-blue-500 text-xs uppercase tracking-[0.28em] mb-5 text-center">
+                className="text-amber-700 text-xs uppercase tracking-[0.28em] mb-5 text-center" style={{ fontFamily: "var(--font-body)" }}>
                 Let's Connect
             </motion.p>
 
@@ -22,13 +22,12 @@ export function Contact() {
             <div className="text-center mb-10 md:mb-12">
                 <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }} viewport={{ once: true }}
-                    style={{ fontFamily: "var(--font-display)" }}
-                    className="text-[clamp(2.2rem,9vw,7rem)] font-extrabold leading-[0.92] text-white mb-2">
+                    className="text-[clamp(2.2rem,9vw,7rem)] font-extrabold leading-[0.92] mb-2" style={{ color: "var(--fg)", fontFamily: "var(--font-display)" }}>
                     Let's Build
                 </motion.h2>
                 <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} viewport={{ once: true }}
-                    style={{ fontFamily: "var(--font-display)", WebkitTextStroke: "clamp(1.5px,0.18vw,3px) rgba(59,130,246,0.55)", color: "transparent" }}
+                    style={{ fontFamily: "var(--font-display)", WebkitTextStroke: "clamp(1.5px,0.18vw,3px) rgba(26,22,16,0.25)", color: "transparent" }}
                     className="text-[clamp(2.2rem,9vw,7rem)] font-extrabold leading-[0.92]">
                     Something Great.
                 </motion.h2>
@@ -36,8 +35,7 @@ export function Contact() {
 
             {/* Subtext */}
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.2 }} viewport={{ once: true }}
-                className="text-white/38 text-center max-w-sm sm:max-w-md mx-auto mb-10 md:mb-12 leading-relaxed text-sm sm:text-base"
-                style={{ fontFamily: "var(--font-body)" }}>
+                className="text-center max-w-sm sm:max-w-md mx-auto mb-10 md:mb-12 leading-relaxed text-sm sm:text-base" style={{ color: "var(--fg-muted)", fontFamily: "var(--font-body)" }}>
                 Open to new opportunities — freelance projects, full-time roles, or just a good tech conversation.
             </motion.p>
 
@@ -60,7 +58,9 @@ export function Contact() {
                 className="flex items-center justify-center gap-3 sm:gap-4">
                 {socials.map(({ label, href, icon: Icon }) => (
                     <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/10 flex items-center justify-center text-white/38 hover:text-white hover:border-white/28 hover:bg-white/5 active:scale-95 transition-all duration-250">
+                        className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center active:scale-95 transition-all duration-250" style={{ borderColor: "var(--border-strong)", color: "var(--fg-muted)" }}
+                        onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.color = 'var(--accent)'; }}
+                        onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--border-strong)'; e.currentTarget.style.color = 'var(--fg-muted)'; }}>
                         <Icon size={17} />
                     </a>
                 ))}
@@ -70,7 +70,7 @@ export function Contact() {
         .contact-email-btn {
           position: relative;
           padding: clamp(12px,1.8vw,18px) clamp(20px,4vw,44px);
-          background: #ffffff; color: #080808;
+          background: var(--fg); color: var(--bg);
           border-radius: 100px;
           font-size: clamp(13px,1.4vw,18px);
           font-weight: 700;
@@ -86,13 +86,13 @@ export function Contact() {
           transition: box-shadow 0.4s ease, transform 0.2s ease;
         }
         .contact-email-btn:hover {
-          box-shadow: 0 0 50px rgba(59,130,246,0.32);
+          box-shadow: 0 4px 20px rgba(26,22,16,0.18);
           transform: scale(1.02);
         }
         .contact-email-btn:active { transform: scale(0.97); }
         .contact-email-hover {
           position: absolute; inset: 0;
-          background: #3b82f6; color: #fff;
+          background: var(--accent); color: var(--bg);
           font-weight: 700;
           align-items: center; justify-content: center;
           opacity: 0;

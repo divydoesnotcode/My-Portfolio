@@ -65,7 +65,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      className={cn("sticky top-10 z-20 w-full", className)}
+      className={cn("sticky top-4 z-20 w-full", className)}
     >
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
@@ -88,11 +88,11 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       onMouseLeave={() => setIsHovered(false)}
       animate={{
         backdropFilter: isHovered
-          ? "blur(18px) saturate(190%)"
-          : "blur(16px) saturate(180%)",
+          ? "blur(14px) saturate(160%)"
+          : "blur(12px) saturate(140%)",
         boxShadow: isHovered
-          ? "0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.12)"
-          : "0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)",
+          ? "0 4px 24px rgba(26,22,16,0.12), inset 0 1px 0 0 rgba(255,255,255,0.6)"
+          : "0 2px 12px rgba(26,22,16,0.08), inset 0 1px 0 0 rgba(255,255,255,0.5)",
         width: visible ? "40%" : "100%",
         y: visible ? 20 : 0,
       }}
@@ -106,8 +106,8 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         willChange: "transform, backdrop-filter",
       }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex backdrop-blur-md border transition-all duration-500 ease-out",
-        isHovered ? "bg-white/[0.025] border-white/10" : "bg-white/[0.02] border-white/8",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full px-4 py-2 lg:flex backdrop-blur-[12px] border",
+        isHovered ? "bg-[#F5F0E8]/90 border-stone-200/80" : "bg-[#F5F0E8]/80 border-stone-200/60",
         className,
       )}
     >
@@ -131,7 +131,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         <a
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-4 py-2 text-gray-300 hover:text-white transition-colors duration-200"
+          className="relative px-4 py-2 text-stone-600 hover:text-stone-900 transition-colors duration-200"
           key={`link-${idx}`}
           href={item.link}
           aria-label={`Navigate to ${item.name}`}
@@ -139,7 +139,15 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           {hovered === idx && (
             <motion.div
               layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-gray-800"
+              className="absolute inset-0 h-full w-full rounded-full bg-amber-100/50 border border-amber-200/60 shadow-[0_2px_8px_rgba(255,193,7,0.1)]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 30,
+              }}
               style={{ willChange: "transform" }}
             />
           )}
@@ -159,11 +167,11 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       onMouseLeave={() => setIsHovered(false)}
       animate={{
         backdropFilter: isHovered
-          ? "blur(18px) saturate(190%)"
-          : "blur(16px) saturate(180%)",
+          ? "blur(14px) saturate(160%)"
+          : "blur(12px) saturate(140%)",
         boxShadow: isHovered
-          ? "0 8px 32px 0 rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.12)"
-          : "0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)",
+          ? "0 4px 24px rgba(26,22,16,0.12), inset 0 1px 0 0 rgba(255,255,255,0.6)"
+          : "0 2px 12px rgba(26,22,16,0.08), inset 0 1px 0 0 rgba(255,255,255,0.5)",
         width: visible ? "90%" : "100%",
         paddingRight: visible ? "12px" : "0px",
         paddingLeft: visible ? "12px" : "0px",
@@ -177,8 +185,8 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       }}
       style={{ willChange: "transform, backdrop-filter" }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-0 py-2 lg:hidden backdrop-blur-md border transition-all duration-500 ease-out",
-        isHovered ? "bg-white/[0.025] border-white/10" : "bg-white/[0.02] border-white/8",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between px-0 py-2 lg:hidden backdrop-blur-[12px] border",
+        isHovered ? "bg-[#F5F0E8]/90 border-stone-200/80" : "bg-[#F5F0E8]/80 border-stone-200/60",
         className,
       )}
     >
@@ -222,8 +230,8 @@ export const MobileNavMenu = ({
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg px-4 py-8 backdrop-blur-xl border shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] [box-shadow:inset_0_1px_0_0_rgba(255,255,255,0.1)] transition-all duration-500 ease-out",
-            isHovered ? "bg-white/[0.025] border-white/10" : "bg-white/[0.02] border-white/8",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg px-4 py-8 backdrop-blur-md border shadow-[0_4px_16px_rgba(26,22,16,0.1)]",
+            isHovered ? "bg-[#F5F0E8]/95 border-stone-200/80" : "bg-[#F5F0E8]/90 border-stone-200/60",
             className,
           )}
         >
@@ -249,9 +257,9 @@ export const MobileNavToggle = ({
       className="p-2 focus:outline-none focus:ring-2 focus:ring-white/20 rounded-md transition-transform duration-300 hover:scale-105"
     >
       {isOpen ? (
-        <IconX className="text-white cursor-pointer hover:text-gray-300 transition-colors duration-300" />
+        <IconX className="text-stone-900 cursor-pointer hover:text-stone-600 transition-colors duration-300" />
       ) : (
-        <IconMenu2 className="text-white cursor-pointer hover:text-gray-300 transition-colors duration-300" />
+        <IconMenu2 className="text-stone-900 cursor-pointer hover:text-stone-600 transition-colors duration-300" />
       )}
     </button>
   );
@@ -260,8 +268,8 @@ export const MobileNavToggle = ({
 export const NavbarLogo = () => {
   return (
     <a
-      href="http://localhost:5173/react-vite-deploy"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-white group"
+      href="/"
+      className="relative z-20 mr-4 flex items-center space-x-2 px-2 py-1 text-sm font-normal text-stone-900 group"
       aria-label="Home"
     >
       <motion.img
@@ -299,11 +307,11 @@ export const NavbarButton = ({
 
   const variantStyles = {
     primary:
-      "bg-white text-black shadow-lg hover:shadow-xl border border-gray-200 focus:ring-white/50",
+      "bg-stone-900 text-stone-50 shadow-lg hover:shadow-xl border border-stone-800 focus:ring-stone-500/50",
     secondary:
-      "bg-transparent text-gray-300 hover:text-white border border-gray-700 hover:border-gray-500 focus:ring-gray-500",
+      "bg-transparent text-stone-600 hover:text-stone-900 border border-stone-200 hover:border-stone-400 focus:ring-stone-400",
     dark:
-      "bg-gray-900 text-white shadow-lg hover:shadow-xl border border-gray-800 hover:bg-black focus:ring-gray-700",
+      "bg-black text-white shadow-lg hover:shadow-xl border border-black focus:ring-stone-700",
   };
 
   return (

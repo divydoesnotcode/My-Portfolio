@@ -8,7 +8,7 @@ export const BackgroundLines = ({
   svgOptions,
 }) => {
   return (
-    <div className={cn("h-full w-full bg-[#050505] relative overflow-hidden", className)}>
+    <div className={cn("h-full w-full relative overflow-hidden", className)}>
       <svg
         className="absolute inset-0 h-full w-full pointer-events-none opacity-20"
         viewBox="0 0 1440 900"
@@ -17,13 +17,13 @@ export const BackgroundLines = ({
       >
         <path
           d="M-0.5 449.5C-0.5 449.5 242 166.5 720 449.5C1198 732.5 1440.5 449.5 1440.5 449.5"
-          stroke="white"
+          stroke="rgba(26,22,16,0.12)"
           strokeWidth="0.5"
           strokeDasharray="4 4"
         />
         <motion.path
           d="M-0.5 449.5C-0.5 449.5 242 166.5 720 449.5C1198 732.5 1440.5 449.5 1440.5 449.5"
-          stroke="#3b82f6"
+          stroke="rgba(180,83,9,0.25)"
           strokeWidth="1"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}
@@ -37,13 +37,13 @@ export const BackgroundLines = ({
         {/* More decorative lines */}
         <path
           d="M-0.5 300C-0.5 300 300 500 720 300C1140 100 1440.5 300 1440.5 300"
-          stroke="white"
+          stroke="rgba(26,22,16,0.12)"
           strokeWidth="0.5"
           strokeDasharray="4 4"
         />
         <motion.path
           d="M-0.5 300C-0.5 300 300 500 720 300C1140 100 1440.5 300 1440.5 300"
-          stroke="#8b5cf6"
+          stroke="rgba(110,87,115,0.25)"
           strokeWidth="1"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}
@@ -57,13 +57,13 @@ export const BackgroundLines = ({
 
         <path
           d="M-0.5 600C-0.5 600 400 400 720 600C1040 800 1440.5 600 1440.5 600"
-          stroke="white"
+          stroke="rgba(26,22,16,0.12)"
           strokeWidth="0.5"
           strokeDasharray="4 4"
         />
         <motion.path
           d="M-0.5 600C-0.5 600 400 400 720 600C1040 800 1440.5 600 1440.5 600"
-          stroke="#10b981"
+          stroke="rgba(67,90,72,0.25)"
           strokeWidth="1"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}

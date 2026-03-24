@@ -59,7 +59,7 @@ export function NavbarDemo({ children }) {
                 key={`mobile-link-${idx}`}
                 href={item.link}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-gray-300 hover:text-white transition-colors duration-200">
+                className="relative text-stone-600 hover:text-stone-900 transition-colors duration-200">
                 <span className="block">{item.name}</span>
               </a>
             ))}
@@ -77,7 +77,7 @@ export function NavbarDemo({ children }) {
         </MobileNav>
       </Navbar>
       {/* Content Injection */}
-      <div className="pt-10 min-h-screen">
+      <div className="pt-4 min-h-screen">
         {children}
       </div>
       {/* Navbar */}

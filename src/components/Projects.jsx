@@ -1,48 +1,49 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 
 const projects = [
   {
     number: "01",
-    title: "AI Image Generator",
-    description: "Full-stack SaaS platform for generating AI images with DALL-E 3. Real-time generation, user auth, and subscription billing.",
-    tech: ["Next.js", "OpenAI", "Stripe", "PostgreSQL"],
-    link: "https://github.com/divydoesnotcode",
-    year: "2024",
-    // Tint color for the glass — each card has its own ambient hue
-    tint: { r: 99, g: 102, b: 241 },   // indigo
-    spotColor: "rgba(99,102,241,",
+    title: "ProcureGenie Local LLM",
+    description: "A local LLM-powered procurement assistant that streamlines vendor discovery, RFQ generation, and supplier evaluation using open-source models like Llama 3 and Mistral.",
+    tech: ["Next.js", "Ollama", "PostgreSQL", "Tailwind CSS"],
+    github: "https://github.com/divydoesnotcode/ProcureGenie-Local-LLM",
+    year: "2026",
+    tint: { r: 180, g: 83, b: 9 },   // Amber/Terracotta
+    spotColor: "rgba(180,83,9,",
   },
   {
     number: "02",
-    title: "Crypto Dashboard",
-    description: "Real-time cryptocurrency tracking with live charts, portfolio management, and price alerts across 200+ coins.",
-    tech: ["React", "Chart.js", "WebSockets"],
-    link: "https://github.com/divydoesnotcode",
-    year: "2024",
-    tint: { r: 20, g: 184, b: 166 },   // teal
-    spotColor: "rgba(20,184,166,",
+    title: "Weather App",
+    description: "A sleek, modern weather application built with React and Tailwind CSS. It fetches real-time weather data for any city worldwide using the OpenWeatherMap API and displays it in a beautiful, user-friendly interface.",
+    tech: ["React", "Tailwind CSS", "OpenWeatherMap API"],
+    github: "https://github.com/divydoesnotcode/Weather-app",
+    year: "2025",
+    tint: { r: 67, g: 90, b: 72 },   // Muted Sage/Olive
+    spotColor: "rgba(67,90,72,",
   },
   {
     number: "03",
-    title: "Task Management",
-    description: "Collaborative task manager with real-time updates, team workspaces, drag-and-drop kanban, and deadline tracking.",
-    tech: ["Node.js", "Socket.io", "React", "MongoDB"],
-    link: "https://github.com/divydoesnotcode",
-    year: "2023",
-    tint: { r: 244, g: 63, b: 94 },    // rose
-    spotColor: "rgba(244,63,94,",
+    title: "DJ Rohan - FreeLance",
+    description: "A professional DJ website built with Next.js and Tailwind CSS. It features a sleek, modern design with smooth animations and a user-friendly interface. It also includes a contact form and a gallery of DJ setups.",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Python"],
+    github: "https://github.com/divydoesnotcode/djrohan-portfolio",
+    vercel: "https://djrohan-portfolio.vercel.app", // example
+    year: "2026",
+    tint: { r: 110, g: 87, b: 115 }, // Muted Plum/Dusty Purple
+    spotColor: "rgba(110,87,115,",
   },
   {
     number: "04",
-    title: "Portfolio v1",
-    description: "First personal portfolio built with React and Framer Motion. Where it all started.",
-    tech: ["React", "Framer", "Tailwind"],
-    link: "https://github.com/divydoesnotcode",
-    year: "2023",
-    tint: { r: 251, g: 146, b: 60 },   // orange
-    spotColor: "rgba(251,146,60,",
+    title: "Personal Portfolio",
+    description: "First personal portfolio built with React and Framer Motion. Where it all started. A highly interactive React portfolio designed to demonstrate real-world UI thinking and clean component architecture",
+    tech: ["React", "Framer", "Tailwind", "Motion", "GSAP"],
+    github: "https://github.com/divydoesnotcode/My-portfolio",
+    vercel: "https://my-portfolio-livid-beta.vercel.app/", // example
+    year: "2024",
+    tint: { r: 122, g: 106, b: 83 }, // Warm Stone/Taupe
+    spotColor: "rgba(122,106,83,",
   },
 ];
 
@@ -140,15 +141,30 @@ function GlassCard({ project, index }) {
               {project.number}
             </span>
             <div className="gc-actions">
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gc-icon-btn"
-                aria-label="Open project"
-              >
-                <ArrowUpRight size={16} />
-              </a>
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gc-icon-btn"
+                  aria-label="View Source on GitHub"
+                >
+                  <Github size={16} />
+                </a>
+              )}
+              {project.vercel && (
+                <a
+                  href={project.vercel}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="gc-icon-btn"
+                  aria-label="View Deployed on Vercel"
+                >
+                  <svg width="12" height="12" viewBox="0 0 76 65" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
+                  </svg>
+                </a>
+              )}
             </div>
           </div>
 
@@ -256,7 +272,7 @@ export function Projects() {
         }
 
         .proj-eyebrow {
-          color: #3b82f6;
+          color: var(--accent);
           font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.3em;
@@ -268,7 +284,7 @@ export function Projects() {
           font-family: var(--font-display);
           font-size: clamp(2.4rem,6vw,5rem);
           font-weight: 800;
-          color: #fff;
+          color: var(--fg);
           line-height: 1.05;
           letter-spacing: -0.025em;
           margin: 0;
@@ -276,9 +292,9 @@ export function Projects() {
         .proj-archive-link {
           font-family: var(--font-body);
           font-size: clamp(12px,1vw,14px);
-          color: rgba(255,255,255,0.35);
+          color: var(--fg-muted);
           text-decoration: none;
-          border-bottom: 1px solid rgba(255,255,255,0.15);
+          border-bottom: 1px solid var(--border);
           padding-bottom: 2px;
           transition: color 0.22s, border-color 0.22s;
           white-space: nowrap;
@@ -288,8 +304,8 @@ export function Projects() {
           .proj-archive-link { align-self: flex-end; }
         }
         .proj-archive-link:hover {
-          color: rgba(255,255,255,0.85);
-          border-color: rgba(255,255,255,0.5);
+          color: var(--fg);
+          border-color: var(--border-strong);
         }
 
         /* ── Grid ── */
@@ -328,65 +344,22 @@ export function Projects() {
           border-radius: 26px;
           overflow: hidden;
           /* The core Liquid Glass material */
-          background:
-            linear-gradient(
-              135deg,
-              rgba(255,255,255,0.09) 0%,
-              rgba(255,255,255,0.04) 50%,
-              rgba(255,255,255,0.07) 100%
-            );
-          backdrop-filter: blur(32px) saturate(180%);
-          -webkit-backdrop-filter: blur(32px) saturate(180%);
-          border: 1px solid rgba(255,255,255,0.12);
-          /* Outer shadow: depth + subtle colored bloom */
-          box-shadow:
-            0 1px 0 0 rgba(255,255,255,0.12) inset,  /* top rim */
-            0 -1px 0 0 rgba(0,0,0,0.2) inset,         /* bottom inner shadow */
-            0 20px 60px rgba(0,0,0,0.35),
-            0 4px 16px rgba(0,0,0,0.2);
+          background: var(--bg-card);
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+          border: 1px solid var(--border);
+          box-shadow: var(--shadow-card);
           transition: box-shadow 0.4s ease, border-color 0.4s ease;
           min-height: 340px;
           display: flex;
           flex-direction: column;
         }
         .glass-card:hover .glass-body {
-          border-color: rgba(255,255,255,0.2);
-          box-shadow:
-            0 1px 0 0 rgba(255,255,255,0.18) inset,
-            0 -1px 0 0 rgba(0,0,0,0.2) inset,
-            0 28px 80px rgba(0,0,0,0.4),
-            0 8px 24px rgba(0,0,0,0.25);
+          border-color: var(--border-strong);
+          box-shadow: var(--shadow-card-hover);
         }
 
-        /* ── Specular highlight (cursor-following) ── */
-        .glass-specular {
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          z-index: 2;
-          transition: opacity 0.3s ease;
-          border-radius: 26px;
-        }
-
-        /* ── Top rim light — the Apple "edge catch" ── */
-        .glass-rim {
-          position: absolute;
-          top: 0; left: 8%; right: 8%;
-          height: 1px;
-          background: linear-gradient(
-            90deg,
-            transparent 0%,
-            rgba(255,255,255,0.5) 30%,
-            rgba(255,255,255,0.7) 50%,
-            rgba(255,255,255,0.5) 70%,
-            transparent 100%
-          );
-          pointer-events: none;
-          z-index: 3;
-          border-radius: 1px;
-        }
-
-        /* ── Card content ── */
+          /* ── Card content ── */
         .glass-content {
           position: relative;
           z-index: 4;
@@ -409,6 +382,8 @@ export function Projects() {
           font-weight: 800;
           line-height: 1;
           user-select: none;
+          color: transparent;
+          -webkit-text-stroke: 1px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.15);
         }
 
         .gc-actions {
@@ -421,20 +396,20 @@ export function Projects() {
           width: 36px;
           height: 36px;
           border-radius: 50%;
-          background: rgba(255,255,255,0.08);
-          border: 1px solid rgba(255,255,255,0.14);
+          background: var(--bg-card);
+          border: 1px solid var(--border);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: rgba(255,255,255,0.55);
+          color: var(--fg-muted);
           text-decoration: none;
           transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.2s;
           backdrop-filter: blur(8px);
         }
         .gc-icon-btn:hover {
-          background: rgba(255,255,255,0.15);
-          border-color: rgba(255,255,255,0.28);
-          color: #fff;
+          background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.1);
+          border-color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.3);
+          color: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 1);
           transform: scale(1.08);
         }
 
@@ -442,7 +417,7 @@ export function Projects() {
           font-family: var(--font-display);
           font-size: clamp(1.2rem,2.2vw,1.5rem);
           font-weight: 700;
-          color: rgba(255,255,255,0.95);
+          color: var(--fg);
           margin: 0 0 10px;
           line-height: 1.25;
         }
@@ -450,7 +425,7 @@ export function Projects() {
         .gc-desc {
           font-family: var(--font-body);
           font-size: clamp(12px,1vw,13.5px);
-          color: rgba(255,255,255,0.48);
+          color: var(--fg-muted);
           line-height: 1.7;
           margin: 0 0 20px;
           flex: 1;
@@ -475,13 +450,14 @@ export function Projects() {
           border: 1px solid;
           backdrop-filter: blur(8px);
           transition: background 0.2s, border-color 0.2s;
+          background: rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.05);
         }
 
         .gc-footer {
           display: flex;
           align-items: center;
           justify-content: flex-end;
-          border-top: 1px solid rgba(255,255,255,0.06);
+          border-top: 1px solid var(--border);
           padding-top: 12px;
           margin-top: auto;
         }
@@ -491,7 +467,7 @@ export function Projects() {
           font-size: 11px;
           letter-spacing: 0.16em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.2);
+          color: var(--fg-muted);
         }
 
         /* Mobile: ensure cards don't have 3d tilt on touch */
