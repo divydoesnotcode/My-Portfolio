@@ -1,0 +1,21 @@
+{
+  "name": "Divy Barot | AI Engineer & Full Stack Developer",
+  "short_name": "Divy Barot",
+  "description": "Portfolio of Divy Barot — AI Engineer and Full Stack Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F0E8",
+  "theme_color": "#F5F0E8",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

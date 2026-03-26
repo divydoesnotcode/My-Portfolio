@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+ 
+# Sitemap
+Sitemap: https://divydoesnotcode-portfolio-livid-beta.vercel.app/sitemap.xml
+ 
