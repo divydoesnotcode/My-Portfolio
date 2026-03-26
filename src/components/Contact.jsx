@@ -14,7 +14,7 @@ export function Contact() {
 
             {/* Label */}
             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-                className="text-amber-700 text-xs uppercase tracking-[0.28em] mb-5 text-center" style={{ fontFamily: "var(--font-body)" }}>
+                className="text-[var(--accent)] text-xs uppercase tracking-[0.28em] mb-5 text-center" style={{ fontFamily: "var(--font-body)" }}>
                 Let's Connect
             </motion.p>
 
@@ -27,7 +27,7 @@ export function Contact() {
                 </motion.h2>
                 <motion.h2 initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }} viewport={{ once: true }}
-                    style={{ fontFamily: "var(--font-display)", WebkitTextStroke: "clamp(1.5px,0.18vw,3px) rgba(26,22,16,0.25)", color: "transparent" }}
+                    style={{ fontFamily: "var(--font-display)", WebkitTextStroke: "clamp(1.5px,0.18vw,3px) var(--border-strong)", color: "transparent" }}
                     className="text-[clamp(2.2rem,9vw,7rem)] font-extrabold leading-[0.92]">
                     Something Great.
                 </motion.h2>
@@ -86,7 +86,7 @@ export function Contact() {
           transition: box-shadow 0.4s ease, transform 0.2s ease;
         }
         .contact-email-btn:hover {
-          box-shadow: 0 4px 20px rgba(26,22,16,0.18);
+          box-shadow: 0 4px 20px var(--border-strong);
           transform: scale(1.02);
         }
         .contact-email-btn:active { transform: scale(0.97); }

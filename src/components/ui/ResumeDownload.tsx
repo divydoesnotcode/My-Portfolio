@@ -71,7 +71,7 @@ export const ResumeDownload = () => {
                   }}
                   className={cn(
                     "relative z-40 mx-auto mt-4 flex h-36 w-full items-center justify-center rounded-xl transition-shadow duration-500",
-                    "shadow-[0px_10px_50px_rgba(26,22,16,0.1)] border group-hover/file:shadow-2xl"
+                    "shadow-[0px_10px_50px_var(--border-strong)] border group-hover/file:shadow-2xl"
                   )}
                   style={{ backgroundColor: "var(--bg)", borderColor: "var(--border-strong)" }}
                 >
@@ -81,8 +81,8 @@ export const ResumeDownload = () => {
                     className="flex flex-col items-center gap-3"
                     style={{ color: "var(--fg-muted)" }}
                   >
-                    <IconDownload className="h-10 w-10 transition-colors duration-300 group-hover/file:text-amber-700" />
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 group-hover/file:text-amber-700">.PDF</span>
+                    <IconDownload className="h-10 w-10 transition-colors duration-300 group-hover/file:text-[var(--accent)]" />
+                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 group-hover/file:text-[var(--accent)]">.PDF</span>
                   </motion.div>
                 </motion.div>
 

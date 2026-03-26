@@ -20,6 +20,20 @@
     --blur-heavy: 16px;
 }
 
+.dark {
+    --accent: #D97706; /* Slightly brighter amber against dark backgrounds */
+    --accent-muted: rgba(217, 119, 6, 0.15);
+    --bg: #12100C; /* Deep black-brown */
+    --bg-card: #1A1713;
+    --fg: #F5F0E8; /* The beige becomes the text color */
+    --fg-muted: #A8A092;
+    --surface: rgba(245, 240, 232, 0.05);
+    --border: rgba(245, 240, 232, 0.10);
+    --border-strong: rgba(245, 240, 232, 0.18);
+    --shadow-card: 0 4px 20px rgba(0,0,0,0.5);
+    --shadow-card-hover: 0 8px 30px rgba(0,0,0,0.7);
+}
+
 /* ── Reset ───────────────────────────────────────────────────── */
 *,
 *::before,
@@ -89,7 +103,8 @@ h4,
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #C4B99A;
+    background: var(--fg-muted);
+    opacity: 0.5;
     border-radius: 2px;
 }
 
@@ -128,7 +143,7 @@ body::before {
 
 /* ── Text selection ──────────────────────────────────────────── */
 ::selection {
-    background: rgba(180, 83, 9, 0.25);
+    background: var(--accent-muted);
     color: var(--fg);
 }
 
@@ -148,4 +163,10 @@ button {
         align-items: center;
         justify-content: center;
     }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

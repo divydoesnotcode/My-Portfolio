@@ -276,15 +276,15 @@ function tokenizeBash(text: string): Token[] {
 }
 
 const tokenColors: Record<TokenType, string> = {
-  command: "text-emerald-700",
-  flag: "text-sky-700",
-  string: "text-amber-700",
-  number: "text-purple-700",
-  operator: "text-red-700",
-  path: "text-cyan-700",
-  variable: "text-pink-700",
-  comment: "text-stone-500",
-  default: "text-stone-700",
+  command: "text-emerald-700 dark:text-emerald-400",
+  flag: "text-sky-700 dark:text-sky-400",
+  string: "text-amber-700 dark:text-amber-400",
+  number: "text-purple-700 dark:text-purple-400",
+  operator: "text-red-700 dark:text-red-400",
+  path: "text-cyan-700 dark:text-cyan-400",
+  variable: "text-pink-700 dark:text-pink-400",
+  comment: "text-[var(--fg-muted)]",
+  default: "text-[var(--fg)]",
 };
 
 function SyntaxHighlightedText({ text }: { text: string }) {
@@ -322,7 +322,7 @@ export interface TerminalProps {
 export function Terminal({
   commands = ["npx shadcn@latest init"],
   outputs = {},
-  username = "Manus-Macbook",
+  username = "Divys-Macbook-Pro",
   className,
   typingSpeed = 50,
   delayBetweenCommands = 800,
@@ -490,11 +490,11 @@ export function Terminal({
   }, [lines, phase]);
 
   const prompt = (
-    <span className="text-stone-500">
-      <span className="text-sky-700 font-semibold">{username}</span>
-      <span className="text-emerald-700">:</span>
-      <span className="text-sky-600">~</span>
-      <span className="text-stone-500">$</span>{" "}
+    <span className="text-[var(--fg-muted)]">
+      <span className="text-blue-800 dark:text-blue-500 font-semibold">{username}</span>
+      <span className="text-emerald-900 dark:text-emerald-400">:</span>
+      <span className="text-sky-700 dark:text-sky-300">~</span>
+      <span className="text-[var(--fg-muted)]">$</span>{" "}
     </span>
   );
 
@@ -506,16 +506,16 @@ export function Terminal({
         className,
       )}
     >
-      <div className="overflow-hidden rounded-lg border border-stone-200 bg-[#FAF9F6] shadow-[0_4px_24px_rgba(26,22,16,0.1)]">
+      <div className="overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)] shadow-[0_4px_24px_rgba(26,22,16,0.1)]">
         {/* Title Bar */}
-        <div className="flex items-center gap-2 bg-stone-100 border-b border-stone-200 px-4 py-3">
+        <div className="flex items-center gap-2 bg-[var(--surface)] border-b border-[var(--border)] px-4 py-3">
           <div className="flex items-center gap-1.5">
             <div className="h-3 w-3 rounded-full bg-red-500 transition-colors hover:bg-red-600" />
             <div className="h-3 w-3 rounded-full bg-yellow-500 transition-colors hover:bg-yellow-600" />
             <div className="h-3 w-3 rounded-full bg-green-500 transition-colors hover:bg-green-600" />
           </div>
           <div className="flex-1 text-center">
-            <span className="truncate text-xs text-stone-500">
+            <span className="truncate text-xs text-[var(--fg-muted)]">
               {username} — bash
             </span>
           </div>
@@ -525,8 +525,7 @@ export function Terminal({
         {/* Terminal Content */}
         <div
           ref={contentRef}
-          className="no-visible-scrollbar h-80 overflow-y-auto p-4 font-mono"
-          style={{ background: "#FAF9F6" }}
+          className="no-visible-scrollbar h-80 overflow-y-auto p-4 font-mono bg-[var(--bg-card)]"
         >
           {lines.map((line, i) => (
             <div key={i} className="leading-relaxed whitespace-pre-wrap">
@@ -536,7 +535,7 @@ export function Terminal({
                   <SyntaxHighlightedText text={line.content} />
                 </span>
               ) : (
-                <span className="text-stone-500">{line.content}</span>
+                <span className="text-[var(--fg-muted)]">{line.content}</span>
               )}
             </div>
           ))}
@@ -546,12 +545,12 @@ export function Terminal({
               {prompt}
               <button
                 onClick={handleStart}
-                className="flex items-center gap-1.5 rounded bg-stone-200/50 px-2.5 py-1 text-xs font-semibold text-stone-600 transition-colors hover:bg-stone-200 hover:text-stone-800 disabled:opacity-50"
+                className="flex items-center gap-1.5 rounded bg-[var(--surface)] border border-[var(--border)] px-2.5 py-1 text-xs font-semibold text-[var(--fg)] transition-colors hover:bg-[var(--accent-muted)] hover:text-[var(--accent)] disabled:opacity-50"
                 disabled={isStarting}
               >
                 {isStarting ? (
                   <>
-                    <span className="h-3 w-3 animate-spin rounded-full border-2 border-stone-400 border-t-transparent" />
+                    <span className="h-3 w-3 animate-spin rounded-full border-2 border-[var(--fg-muted)] border-t-transparent" />
                     Loading Audio...
                   </>
                 ) : (
@@ -570,7 +569,7 @@ export function Terminal({
             <div className="leading-relaxed whitespace-pre-wrap">
               {prompt}
               <SyntaxHighlightedText text={currentText} />
-              <span className="ml-0.5 inline-block h-4 w-2 bg-neutral-300 align-middle" />
+              <span className="ml-0.5 inline-block h-4 w-2 bg-[var(--fg-muted)] align-middle" />
             </div>
           )}
 
@@ -581,7 +580,7 @@ export function Terminal({
               {prompt}
               <span
                 className={cn(
-                  "inline-block h-4 w-2 bg-neutral-300 align-middle transition-opacity duration-100",
+                  "inline-block h-4 w-2 bg-[var(--fg-muted)] align-middle transition-opacity duration-100",
                   !cursorVisible && "opacity-0",
                 )}
               />

@@ -118,7 +118,7 @@ export function Hero() {
                 <span style={{
                     display: "flex", alignItems: "center", gap: "7px",
                     fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase",
-                    color: "#16a34a", fontFamily: "var(--font-body)",
+                    color: "var(--accent)", fontFamily: "var(--font-body)",
                 }}>
                     <span className="hero-status-dot" />
                     Available for work
@@ -177,7 +177,7 @@ export function Hero() {
                                 fontWeight: 700,
                                 lineHeight: 0.88,
                                 letterSpacing: "-0.025em",
-                                WebkitTextStroke: "clamp(1.2px,0.18vw,3px) rgba(26,22,16,0.3)",
+                                WebkitTextStroke: "clamp(1.2px,0.18vw,3px) var(--border-strong)",
                                 color: "transparent",
                                 margin: 0,
                                 display: "block",
@@ -224,7 +224,11 @@ export function Hero() {
                     >
                         View Work
                     </a>
-                    <a href="mailto:workwithdivy@gmail.com" className="hero-cta-secondary">Get in Touch</a>
+                    <a 
+                        href="#contact" 
+                        onClick={(e) => handleScroll(e, "#contact")}
+                        className="hero-cta-secondary"
+                    >Get in Touch</a>
                 </motion.div>
             </div>
 
@@ -239,8 +243,8 @@ export function Hero() {
             <style>{`
         .hero-status-dot {
           width: 6px; height: 6px; border-radius: 50%;
-          background: #4ade80;
-          box-shadow: 0 0 8px rgba(74,222,128,0.6);
+          background: var(--accent);
+          box-shadow: 0 0 8px var(--accent-muted);
           display: inline-block;
           flex-shrink: 0;
           animation: heroDotPulse 2.2s ease-in-out infinite;

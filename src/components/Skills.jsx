@@ -309,7 +309,7 @@ export function Skills() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-amber-700 text-xs uppercase tracking-[0.3em] mb-4 font-semibold"
+          className="text-[var(--accent)] text-xs uppercase tracking-[0.3em] opacity-80 mb-4 font-semibold"
           style={{ fontFamily: "var(--font-body)" }}
         >
           What I Work With

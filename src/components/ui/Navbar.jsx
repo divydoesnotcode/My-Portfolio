@@ -11,6 +11,7 @@ import {
   MobileNavMenu,
 } from "../ui/resizable-navbar";
 import { useState } from "react";
+import { AnimatedThemeToggler } from "./ThemeToggler";
 
 export function NavbarDemo({ children }) {
   const navItems = [
@@ -37,7 +38,8 @@ export function NavbarDemo({ children }) {
         <NavBody>
           <NavbarLogo />
           <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 relative z-[70]">
+            <AnimatedThemeToggler className="p-2 rounded-full text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200 flex items-center justify-center focus:outline-none " />
             <a href="mailto:workwithdivy@gmail.com">
               <NavbarButton variant="primary">Mail</NavbarButton>
             </a>
@@ -48,9 +50,12 @@ export function NavbarDemo({ children }) {
         <MobileNav>
           <MobileNavHeader>
             <NavbarLogo />
-            <MobileNavToggle
-              isOpen={isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+            <div className="flex items-center gap-1 relative z-[80]">
+              <AnimatedThemeToggler className="p-2 rounded-full text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors duration-200 flex items-center justify-center focus:outline-none" />
+              <MobileNavToggle
+                isOpen={isMobileMenuOpen}
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+            </div>
           </MobileNavHeader>
 
           <MobileNavMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)}>
@@ -84,6 +89,5 @@ export function NavbarDemo({ children }) {
       </div>
       {/* Navbar */}
     </div>
-
   );
 };

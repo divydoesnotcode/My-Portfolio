@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+  <script>
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
   <meta charset="UTF-8" />
 
   <meta name="google-site-verification" content="6xmbjRAK-ZeP4CeM2AOLWdempbtOhx4-veyYYB4TTG0" /> <!-- ── Viewport ─────────────────────────────────────── -->

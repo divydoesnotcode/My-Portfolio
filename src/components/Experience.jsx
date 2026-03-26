@@ -5,9 +5,9 @@ const experiences = [
   {
     year: "2025 — Now",
     title: "Full Stack Developer",
-    company: "Freelance",
-    type: "Work",
-    color: { r: 180, g: 83, b: 9 },   // Amber/Terracotta
+    company: "",
+    type: "Freelance",
+    color: { r: 130, g: 112, b: 96 }, // Soft Sand / Warm Beige
     description:
       "Working with clients to build and maintain web applications using React, Node.js, and PostgreSQL. Integrating AI agents to automate tasks. Also experimenting with n8n",
     highlights: ["Ollama", "React", "Node.js", "PostgreSQL", "Docker", "Next.js", "n8n"],
