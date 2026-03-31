@@ -206,7 +206,6 @@ export function NotFound() {
         className="nf-topbar"
       >
         <span className="nf-topbar-tag">Portfolio · 2026</span>
-        <a href="/" className="nf-topbar-logo">DB</a>
       </motion.div>
 
       {/* Main content */}
