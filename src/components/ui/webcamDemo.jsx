@@ -3,17 +3,17 @@ import WebcamPixelGrid from "./webcam-pixel-grid";
 import { useEffect, useState } from "react";
 
 const socials = [
-    { label: "GitHub",      href: "https://github.com/divydoesnotcode" },
-    { label: "LinkedIn",    href: "https://www.linkedin.com/in/divy-barot" },
-    { label: "X / Twitter", href: "https://x.com/divydoesnotcode" },
-    { label: "Mail",        href: "mailto:workwithdivy@gmail.com" },
+  { label: "GitHub", href: "https://github.com/divydoesnotcode" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/divy-barot" },
+  { label: "X / Twitter", href: "https://x.com/divydoesnotcode" },
+  { label: "Mail", href: "mailto:workwithdivy@gmail.com" },
 ];
 
 const navLinks = [
-    { label: "Work",       href: "#projects" },
-    { label: "Skills",     href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Contact",    href: "#contact" },
+  { label: "Work", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function WebcamPixelGridDemo() {
@@ -103,15 +103,18 @@ export function WebcamPixelGridDemo() {
 
         {/* Subtle Status/Tagline */}
         <div className="webcam-footer-mid">
-           <motion.p
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             transition={{ duration: 1 }}
-             className="webcam-footer-tagline"
-           >
-             "Leveraging Discipline, avoiding Distractions and building myself through Execution and Failures."
-           </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="webcam-footer-tagline"
+          >
+            "Leveraging Discipline, avoiding Distractions and building myself through Execution and Failures."
+          </motion.p>
         </div>
+
+        {/* Divider */}
+        <div className="webcam-footer-divider" />
 
         {/* Bottom Bar */}
         <motion.div

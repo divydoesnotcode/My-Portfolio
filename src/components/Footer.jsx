@@ -1,118 +1,121 @@
 import { motion } from "motion/react";
 
 const socials = [
-    { label: "GitHub",      href: "https://github.com/divydoesnotcode" },
-    { label: "LinkedIn",    href: "https://www.linkedin.com/in/divy-barot" },
-    { label: "X / Twitter", href: "https://x.com/divydoesnotcode" },
-    { label: "Mail",        href: "mailto:workwithdivy@gmail.com" },
+  { label: "GitHub", href: "https://github.com/divydoesnotcode" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/divy-barot" },
+  { label: "X / Twitter", href: "https://x.com/divydoesnotcode" },
+  { label: "Mail", href: "mailto:workwithdivy@gmail.com" },
 ];
 
 const navLinks = [
-    { label: "Work",       href: "#projects" },
-    { label: "Skills",     href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Contact",    href: "#contact" },
+  { label: "Work", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export function Footer() {
-    const year = new Date().getFullYear();
-    
-    const handleScroll = (e, href) => {
-        if (!href.startsWith("#")) return;
-        e.preventDefault();
-        const targetId = href.replace("#", "");
-        
-        // Use Lenis for slower, smoother scroll if available
-        if (window.lenis) {
-            window.lenis.scrollTo(href, {
-                duration: 2.5,
-                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            });
-        } else {
-            const element = document.getElementById(targetId);
-            if (element) {
-                element.scrollIntoView({ behavior: "smooth" });
-            }
-        }
-    };
+  const year = new Date().getFullYear();
 
-    return (
-        <footer className="footer-root">
+  const handleScroll = (e, href) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    const targetId = href.replace("#", "");
 
-            {/* ── Top strip ── */}
-            <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="footer-top"
-            >
-                <div className="flex flex-wrap gap-12 md:gap-32">
-                  {/* Section nav */}
-                  <nav className="footer-nav" aria-label="Footer navigation">
-                      <span className="footer-group-label">Navigate</span>
-                      <div className="footer-link-row">
-                          {navLinks.map(({ label, href }) => (
-                              <a 
-                                  key={label} 
-                                  href={href} 
-                                  onClick={(e) => handleScroll(e, href)}
-                                  className="footer-link"
-                              >
-                                  {label}
-                              </a>
-                          ))}
-                      </div>
-                  </nav>
+    // Use Lenis for slower, smoother scroll if available
+    if (window.lenis) {
+      window.lenis.scrollTo(href, {
+        duration: 2.5,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      });
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
-                  {/* Social nav */}
-                  <nav className="footer-nav" aria-label="Social navigation">
-                      <span className="footer-group-label">Connect</span>
-                      <div className="footer-link-row">
-                          {socials.map(({ label, href }) => (
-                              <a 
-                                  key={label} 
-                                  href={href}
-                                  target="_blank"
-                                  rel="noopener noreferrer" 
-                                  className="footer-link"
-                              >
-                                  {label}
-                              </a>
-                          ))}
-                      </div>
-                  </nav>
-                </div>
-            </motion.div>
+  return (
+    <footer className="footer-root">
 
-            {/* ── Divider ── */}
-            <div className="footer-divider" />
+      {/* ── Top strip ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="footer-top"
+      >
+        <div className="flex flex-wrap gap-12 md:gap-32">
+          {/* Section nav */}
+          <nav className="footer-nav" aria-label="Footer navigation">
+            <span className="footer-group-label">Navigate</span>
+            <div className="footer-link-row">
+              {navLinks.map(({ label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  onClick={(e) => handleScroll(e, href)}
+                  className="footer-link"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </nav>
 
-            {/* Subtle Status/Tagline */}
-        <div className="webcam-footer-mid">
-           <motion.p
-             initial={{ opacity: 0 }}
-             whileInView={{ opacity: 1 }}
-             transition={{ duration: 1 }}
-             className="webcam-footer-tagline"
-           >
-             "Leveraging Discipline, avoiding Distractions and building myself through Execution and Failures."
-           </motion.p>
+          {/* Social nav */}
+          <nav className="footer-nav" aria-label="Social navigation">
+            <span className="footer-group-label">Connect</span>
+            <div className="footer-link-row">
+              {socials.map(({ label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </nav>
         </div>
+      </motion.div>
 
-            {/* ── Bottom bar ── */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="footer-bottom"
-            >
-                <p className="footer-meta">AI Engineer &amp; Full Stack Developer</p>
-                <p className="footer-meta">© {year} Divy Barot</p>
-            </motion.div>
+      {/* ── Divider ── */}
+      <div className="footer-divider" />
 
-            <style>{`
+      {/* Subtle Status/Tagline */}
+      <div className="webcam-footer-mid">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="webcam-footer-tagline"
+        >
+          "Leveraging Discipline, avoiding Distractions and building myself through Execution and Failures."
+        </motion.p>
+      </div>
+
+      {/* ── Divider ── */}
+      <div className="footer-divider" />
+
+      {/* ── Bottom bar ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="footer-bottom"
+      >
+        <p className="footer-meta">AI Engineer &amp; Full Stack Developer</p>
+        <p className="footer-meta">© {year} Divy Barot</p>
+      </motion.div>
+
+      <style>{`
         /* ── Root ── */
         .footer-root {
           position: relative;
@@ -286,6 +289,6 @@ export function Footer() {
           }
         }
       `}</style>
-        </footer>
-    );
+    </footer>
+  );
 }

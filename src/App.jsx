@@ -10,6 +10,7 @@ import { Preloader } from './components/ui/Preloader'
 import { Hero } from './components/Hero'
 import { WebcamPixelGridDemo } from './components/ui/webcamDemo'
 
+
 // Lazy load everything below the fold
 const Projects = lazy(() => import('./components/Projects').then(m => ({ default: m.Projects })))
 const Skills = lazy(() => import('./components/Skills').then(m => ({ default: m.Skills })))
@@ -79,13 +80,9 @@ function App() {
             <Suspense fallback={null}>
             </Suspense>
           </NavbarDemo>
-          {!isMobile ? (
-            <WebcamPixelGridDemo />
-          ) : (
-            <Suspense fallback={null}>
-              <Footer />
-            </Suspense>
-          )}
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
         </>
       )}
     </>
