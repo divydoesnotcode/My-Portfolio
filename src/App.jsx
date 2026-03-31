@@ -71,9 +71,9 @@ function App() {
               </Suspense>
             </main>
             <Suspense fallback={null}>
-            <WebcamPixelGridDemo />
             </Suspense>
           </NavbarDemo>
+          <WebcamPixelGridDemo />
         </>
       )}
     </>
