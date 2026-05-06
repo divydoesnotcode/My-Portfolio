@@ -66,7 +66,6 @@ function App() {
       {!isLoading && (
         <>
           {hasFinePointer && <ParallaxBackground />}
-          <NavbarDemo>
             <Hero />
             <main>
               <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
@@ -79,7 +78,6 @@ function App() {
             </main>
             <Suspense fallback={null}>
             </Suspense>
-          </NavbarDemo>
           <Suspense fallback={null}>
             <Footer />
           </Suspense>
